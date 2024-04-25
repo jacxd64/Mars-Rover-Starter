@@ -11,11 +11,15 @@ describe("Message class", function() {
     });
 
     it("constructor sets name", function() {
-
         const msgTest2_1 = new Message("changing mode to low power", []);
         expect(msgTest2_1.name).toBe("changing mode to low power");
     });
 
-
+    it("contains a commands array passed into the constructor as the 2nd argument", function() {
+        let testObj = {commandType: 'MODE_CHANGE', value: 'LOW_POWER'};
+        let testArr = [testObj]
+        const msgTest3_1 = new Message("changing mode to low power", testArr);
+        expect(msgTest3_1.commands).toBe(testArr);
+    })
 
 });
