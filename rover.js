@@ -9,7 +9,6 @@ class Rover {
       let results = [];
 
       for (let i = 0; i < message.commands.length; i++) {
-         //results.push(message.commands[i]);
          let command = message.commands[i];
          let commandResult = {completed: true};
 

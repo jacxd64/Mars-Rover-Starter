@@ -53,7 +53,6 @@ describe("Rover class", function() {
     expect(response.results[0].completed).toBe(true);
     expect(testRover3_5.mode).toBe('LOW_POWER');
 
-    // Testing mode change back to NORMAL
     commands = [new Command('MODE_CHANGE', 'NORMAL')];
     message = new Message('Mode change to NORMAL', commands);
     response = testRover3_5.receiveMessage(message);
@@ -65,9 +64,8 @@ describe("Rover class", function() {
     let testRover3_6 = new Rover(8675309);
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER')];
     let message = new Message('Change to LOW_POWER', commands);
-    testRover3_6.receiveMessage(message); // Change mode to LOW_POWER
+    testRover3_6.receiveMessage(message);
 
-    // Attempt to move while in LOW_POWER mode
     commands = [new Command('MOVE', 100)];
     message = new Message('Attempt to move in LOW_POWER', commands);
     let response = testRover3_6.receiveMessage(message);
